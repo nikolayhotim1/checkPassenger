@@ -1,8 +1,8 @@
 'usestrict';
-let passengers = [{ name: "Jane Doloop", paid: true },
-{ name: "Dr. Evel", paid: true },
-{ name: "Sue Property", paid: false },
-{ name: "John Funcall", paid: true }];
+let passengers = [{ name: 'Jane Doloop', paid: true },
+{ name: 'Dr. Evel', paid: true },
+{ name: 'Sue Property', paid: false },
+{ name: 'John Funcall', paid: true }];
 
 function processPassengers(passengers, testFunction) {
     for (let i = 0; i < passengers.length; i++) {
@@ -23,7 +23,15 @@ function checkNotPaid(passenger) {
 }
 
 function printPassenger(passenger) {
-    console.log(passenger.name + ', paid: ' + passenger.paid);
+    let message = passenger.name;
+
+    if (passenger.paid === true) {
+        message += ' has paid';
+    } else {
+        message += ' has not paid';
+    }
+
+    console.log(message);
     return false;
 }
 
