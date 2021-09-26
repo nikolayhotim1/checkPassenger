@@ -75,32 +75,35 @@ function createDinnerOrder(passenger) {
     return orderFunction;
 }
 
+function serveCustomerWithOfferDrink(passenger) {
+    let getDrinkOrderFunction = createDrinkOrder(passenger);
+    getDrinkOrderFunction();
+}
+
+function serveCustomerWithOfferDinner(passenger) {
+    let getDinnerOrderFunction = createDinnerOrder(passenger);
+    getDinnerOrderFunction();
+}
+
 function pickupTrash() {
     alert('Can I have your trash, please?');
 }
 
-function serveCustomer(passenger) {
-    let getDrinkOrderFunction = createDrinkOrder(passenger);
-    let getDinnerOrderFunction = createDinnerOrder(passenger);
-
-    getDrinkOrderFunction();
-
-    // Offer dinner
-    getDinnerOrderFunction();
-    getDrinkOrderFunction();
-
-    getDrinkOrderFunction();
-
-    // Turn on movie
-    getDrinkOrderFunction();
-
-    // Pick up trash
-    pickupTrash();
+function servePassengersWithOfferDrink(passengers) {
+    for (let i = 0; i < passengers.length; i++) {
+        serveCustomerWithOfferDrink(passengers[i]);
+    }
 }
 
-function servePassengers(passengers) {
+function servePassengersWithOfferDinner(passengers) {
     for (let i = 0; i < passengers.length; i++) {
-        serveCustomer(passengers[i]);
+        serveCustomerWithOfferDinner(passengers[i]);
+    }
+}
+
+function servePassengersWithPickupTrash(passengers) {
+    for (let i = 0; i < passengers.length; i++) {
+        pickupTrash();
     }
 }
 
@@ -115,4 +118,12 @@ if (!allPaid) {
 }
 
 processPassengers(passengers, printPassenger);
-servePassengers(passengers);
+
+servePassengersWithOfferDrink(passengers);
+// Offer dinner
+servePassengersWithOfferDinner(passengers);
+servePassengersWithOfferDrink(passengers);
+// Turn on movie
+servePassengersWithOfferDrink(passengers);
+// Pick up trash
+servePassengersWithPickupTrash(passengers);
