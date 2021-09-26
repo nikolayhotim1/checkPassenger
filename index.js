@@ -75,22 +75,27 @@ function createDinnerOrder(passenger) {
     return orderFunction;
 }
 
+function pickupTrash() {
+    alert('Can I have your trash, please?');
+}
+
 function serveCustomer(passenger) {
     let getDrinkOrderFunction = createDrinkOrder(passenger);
     let getDinnerOrderFunction = createDinnerOrder(passenger);
 
     getDrinkOrderFunction();
 
-    // Offer lunch
+    // Offer dinner
     getDinnerOrderFunction();
     getDrinkOrderFunction();
 
     getDrinkOrderFunction();
 
-    // Turn on the movie
+    // Turn on movie
     getDrinkOrderFunction();
 
-    // Pick up the trash
+    // Pick up trash
+    pickupTrash();
 }
 
 function servePassengers(passengers) {
